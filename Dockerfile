@@ -26,4 +26,4 @@ mkdir -p /app/web/.next/standalone/.next && \
 cp -r /app/web/.next/static /app/web/.next/standalone/.next/static
 WORKDIR /app
 
-CMD ["sh", "-c", "uvicorn app.main:app --host 127.0.0.1 --port 9000 & sleep 5 && cd /app/web && PORT=8000 NODE_ENV=production HOSTNAME=0.0.0.0 exec node .next/standalone/server.js"]
+CMD ["sh", "-c", "uvicorn app.main:app --host 0.0.0.0 --port 9000 & sleep 5 && cd /app/web && PORT=8000 NODE_ENV=production HOSTNAME=0.0.0.0 exec node .next/standalone/server.js"]
